@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "mvpboomrngmobf05aa429": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

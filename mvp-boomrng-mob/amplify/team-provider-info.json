@@ -10,6 +10,11 @@
       "StackName": "amplify-mvpboomrngmob-dev-191927",
       "StackId": "arn:aws:cloudformation:us-east-2:919879029012:stack/amplify-mvpboomrngmob-dev-191927/b79a8920-3758-11eb-bcb4-0ab3a2e181f6",
       "AmplifyAppId": "d2p2zl5e3qshi"
+    },
+    "categories": {
+      "auth": {
+        "mvpboomrngmobf05aa429": {}
+      }
     }
   }
 }
