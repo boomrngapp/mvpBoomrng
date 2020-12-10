@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text } from "react-native";
-import MaterialSearchBarWithBackground1 from "../components/MaterialSearchBarWithBackground1";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
@@ -10,9 +9,9 @@ import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommun
 function HomeScreen(props) {
   return (
     <View style={styles.container}>
-      <MaterialSearchBarWithBackground1
+      {/* <MaterialSearchBarWithBackground1
         style={styles.materialSearchBarWithBackground1}
-      ></MaterialSearchBarWithBackground1>
+      ></MaterialSearchBarWithBackground1> */}
       <FeatherIcon name="search" style={styles.icon1}></FeatherIcon>
       <View style={styles.rectStack}>
         <View style={styles.rect}></View>
