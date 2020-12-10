@@ -9,13 +9,10 @@ import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommun
 function HomeScreen(props) {
   return (
     <View style={styles.container}>
-      {/* <MaterialSearchBarWithBackground1
-        style={styles.materialSearchBarWithBackground1}
-      ></MaterialSearchBarWithBackground1> */}
       <FeatherIcon name="search" style={styles.icon1}></FeatherIcon>
       <View style={styles.rectStack}>
         <View style={styles.rect}></View>
-        <Text style={styles.browseCards1}>
+        <Text>
           End Sun, Nov 29 |. Code FREECARDS
         </Text>
         <Text style={styles.browseCards2}>
@@ -25,21 +22,7 @@ function HomeScreen(props) {
       </View>
       <View style={styles.group}>
         <View style={styles.icon2Row}>
-          <EntypoIcon name="home" style={styles.icon2}></EntypoIcon>
-          <IoniconsIcon
-            name="md-cloud-upload"
-            style={styles.icon7}
-          ></IoniconsIcon>
-          <FontAwesomeIcon name="plus" style={styles.icon10}></FontAwesomeIcon>
-          <MaterialCommunityIconsIcon
-            name="account"
-            style={styles.icon8}
-          ></MaterialCommunityIconsIcon>
-          <FontAwesomeIcon
-            name="shopping-cart"
-            style={styles.icon9}
-          ></FontAwesomeIcon>
-        </View>
+          </View>
       </View>
     </View>
   );
@@ -85,7 +68,7 @@ const styles = StyleSheet.create({
   browseCards1: {
     top: 28,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    // fontFamily: "roboto-regular",
     color: "rgba(155,155,155,1)",
     height: 28,
     width: 345,
@@ -96,7 +79,7 @@ const styles = StyleSheet.create({
   browseCards2: {
     top: 11,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    // fontFamily: "roboto-regular",
     color: "rgba(74,74,74,1)",
     height: 28,
     width: 345,
