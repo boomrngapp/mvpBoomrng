@@ -1,57 +1,67 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, ImageBackground } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 // import MaterialSearchBarWithBackground1 from "../components/MaterialSearchBarWithBackground1";
 // import MaterialButtonPink from "../components/MaterialButtonPink";
 
+const image = '../../assets/images/LoginScreen.png'
+
 function LoginScreen(props) {
   return (
-    <View style={styles.container}>
-      <View style={styles.rectStack}>
-        <View style={styles.rect}></View>
-        <Text style={styles.email}>Email</Text>
-      </View>
-      {/* <MaterialSearchBarWithBackground1
-        style={styles.materialSearchBarWithBackground1}
-      ></MaterialSearchBarWithBackground1> */}
-      <Text style={styles.logIn}>Log in</Text>
-      <Text style={styles.or}>or</Text>
-      <View style={styles.rect1Stack}>
-        <View style={styles.rect1}></View>
-        <Text style={styles.password}>Password</Text>
-      </View>
-      {/* <MaterialButtonPink style={styles.logInButton1}></MaterialButtonPink> */}
-      <Text style={styles.forgetPassword}>Forget Password?</Text>
-      <Image
-        source={require("../../assets/images/boomrng-ICON-193x220.png")}
-        resizeMode="contain"
-        style={styles.image4}
-      ></Image>
-      {/* <View style={styles.group}>
-        <View style={styles.image5Row}>
-          <Image
-            source={require("../assets/images/FB_Icon1.png")}
-            resizeMode="contain"
-            style={styles.image5}
-          ></Image>
-          <Image
-            source={require("../assets/images/Google_2274401.png")}
-            resizeMode="contain"
-            style={styles.image6}
-          ></Image>
-          <Image
-            source={require("../assets/images/apple_104447.png")}
-            resizeMode="contain"
-            style={styles.image7}
-          ></Image>
-        </View>
-      </View> */}
+    <View>
+      <ImageBackground 
+        source = {require(image)}
+        style = {{ width: '100%', height: '100%', opacity: .8}}
+      ></ImageBackground>
+
     </View>
+    // <View style={styles.container}>
+    //   <View style={styles.rectStack}>
+    //     <View style={styles.rect}></View>
+    //     <Text style={styles.email}>Email</Text>
+    //   </View>
+    //   {/* <MaterialSearchBarWithBackground1
+    //     style={styles.materialSearchBarWithBackground1}
+    //   ></MaterialSearchBarWithBackground1> */}
+    //   <Text style={styles.logIn}>Log in</Text>
+    //   <Text style={styles.or}>or</Text>
+    //   <View style={styles.rect1Stack}>
+    //     <View style={styles.rect1}></View>
+    //     <Text style={styles.password}>Password</Text>
+    //   </View>
+    //   {/* <MaterialButtonPink style={styles.logInButton1}></MaterialButtonPink> */}
+    //   <Text style={styles.forgetPassword}>Forget Password?</Text>
+    //   {/* <Image
+    //     source={require("../../assets/images/boomrng-ICON-193x220.png")}
+    //     resizeMode="contain"
+    //     style={styles.image4}
+    //   ></Image> */}
+    //   {/* <View style={styles.group}>
+    //     <View style={styles.image5Row}>
+    //       <Image
+    //         source={require("../assets/images/FB_Icon1.png")}
+    //         resizeMode="contain"
+    //         style={styles.image5}
+    //       ></Image>
+    //       <Image
+    //         source={require("../assets/images/Google_2274401.png")}
+    //         resizeMode="contain"
+    //         style={styles.image6}
+    //       ></Image>
+    //       <Image
+    //         source={require("../assets/images/apple_104447.png")}
+    //         resizeMode="contain"
+    //         style={styles.image7}
+    //       ></Image>
+    //     </View>
+    //   </View> */}
+    // </View>
   );
 }
 
-const newLocal = "roboto-regular";
-const newLocal_1 = "roboto-regular";
-const newLocal_2 = "roboto-regular";
+const newLocal = "serif";
+const newLocal_1 = "serif";
+const newLocal_2 = "serif";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
