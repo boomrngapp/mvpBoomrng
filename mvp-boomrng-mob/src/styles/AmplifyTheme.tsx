@@ -1,16 +1,18 @@
 import { StyleSheet } from 'react-native'
 
-export const deepSquidInk = '#152939';
+// export const sc = StyleSheet.create({})
+export const primary = '#152939';
 export const linkUnderlayColor = '#FFF';
 export const textInputColor = '#000000';
 export const textInputBorderColor = '#C4C4C4';
 export const placeholderColor = '#C7C7CD';
-export const buttonColor = '#ff9900';
+export const primaryButtonColor = '#ff9900';
 export const disabledButtonColor = '#ff990080';
+
 
 // Theme
 const AmplifyTheme = StyleSheet.create({
-	container: {
+    container: {
 		flex: 1,
 		flexDirection: 'column',
 		alignItems: 'center',
@@ -36,8 +38,8 @@ const AmplifyTheme = StyleSheet.create({
 		paddingTop: 20,
 	},
 	sectionHeaderText: {
-		color: deepSquidInk,
-		fontSize: 20,
+		color: primary,
+		fontSize: 24,
 		fontWeight: '500',
 	},
 	sectionFooter: {
@@ -50,7 +52,7 @@ const AmplifyTheme = StyleSheet.create({
 	},
 	sectionFooterLink: {
 		fontSize: 14,
-		color: buttonColor,
+		color: primaryButtonColor,
 		alignItems: 'baseline',
 		textAlign: 'center',
 	},
@@ -61,7 +63,7 @@ const AmplifyTheme = StyleSheet.create({
 		textAlign: 'center',
 	},
 	navBar: {
-		marginTop: 35,
+		marginTop: 16,
 		padding: 15,
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
@@ -69,7 +71,7 @@ const AmplifyTheme = StyleSheet.create({
 	},
 	navButton: {
 		marginLeft: 12,
-		borderRadius: 4,
+		borderRadius: 3,
 	},
 	cell: {
 		flex: 1,
@@ -93,7 +95,7 @@ const AmplifyTheme = StyleSheet.create({
 		width: '100%',
 	},
 	button: {
-		backgroundColor: buttonColor,
+		backgroundColor: primaryButtonColor,
 		alignItems: 'center',
 		padding: 16,
 	},
@@ -143,7 +145,40 @@ const AmplifyTheme = StyleSheet.create({
 	signedOutMessage: {
 		textAlign: 'center',
 		padding: 20,
-	},
+    },
+	formContainer: {},
+	formSection: {},
+
+	sectionBody: {},
+	sectionFooterPrimaryContent: {},
+	sectionFooterSecondaryContent: {},
+
+	photoPickerButton: {},
+	photoPlaceholder: {},
+	signInButton: {
+        color: primaryButtonColor
+    },
+	signInButtonIcon:{},
+	signInButtonContent: {},
+	amazonSignInButton: {},
+	facebookSignInButton: {},
+	googleSignInButton: {},
+	oAuthSignInButton: {},
+
+	formRow: {},
+	strike: {},
+	strikeContent: {},
+	actionRow: {},
+	a: {},
+
+	hint: {},
+	radio: {},
+	label: {},
+	toast: {},
+
+	nav: {},
+	navRight: {},
+	navItem: {}
 });
 
 export {AmplifyTheme}

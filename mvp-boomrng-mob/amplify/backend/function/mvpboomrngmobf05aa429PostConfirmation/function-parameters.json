@@ -1,0 +1,17 @@
+{
+  "trigger": true,
+  "modules": [
+    "add-to-group"
+  ],
+  "parentResource": "mvpboomrngmobf05aa429",
+  "functionName": "mvpboomrngmobf05aa429PostConfirmation",
+  "resourceName": "mvpboomrngmobf05aa429PostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "C:\\Users\\owenb\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "roleName": "mvpboomrngmobf05aa429PostConfirmation",
+  "skipEdit": true,
+  "GROUP": "mvpboomrngmobf05aa429_userpool_f05aa429-dev",
+  "enableCors": false
+}
