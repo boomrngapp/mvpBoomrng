@@ -1,17 +1,26 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
+// import { AmplifyTheme } from 'aws-amplify-react-native';
+
+export type AmplifyThemeType = Record<string, any>;
 
 // export const sc = StyleSheet.create({})
-export const primary = '#152939';
+export const primary = '#024E99';
+export const primary2 = '#02ADED';
+export const primary3 = '#FFBB00';
+export const primary4 = '#C70136';
+export const secondary = '#CACECE';
+export const secondary2 = '#E5E7E9';
 export const linkUnderlayColor = '#FFF';
 export const textInputColor = '#000000';
 export const textInputBorderColor = '#C4C4C4';
 export const placeholderColor = '#C7C7CD';
-export const primaryButtonColor = '#ff9900';
+export const primaryButtonColor = '#152939';
 export const disabledButtonColor = '#ff990080';
 
 
+
 // Theme
-const AmplifyTheme = StyleSheet.create({
+const LocalAmplifyTheme = StyleSheet.create({
     container: {
 		flex: 1,
 		flexDirection: 'column',
@@ -48,7 +57,7 @@ const AmplifyTheme = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		marginTop: 15,
-		marginBottom: 20,
+		marginBottom: 30,
 	},
 	sectionFooterLink: {
 		fontSize: 14,
@@ -94,10 +103,17 @@ const AmplifyTheme = StyleSheet.create({
 	album: {
 		width: '100%',
 	},
+	signInButton: {
+        color: primary,
+		borderColor: '#fff',
+		borderRadius: 30,
+		opacity: .15
+	},
 	button: {
-		backgroundColor: primaryButtonColor,
+		backgroundColor: primary,
 		alignItems: 'center',
 		padding: 16,
+		borderRadius: 10
 	},
 	buttonDisabled: {
 		backgroundColor: disabledButtonColor,
@@ -107,14 +123,14 @@ const AmplifyTheme = StyleSheet.create({
 	buttonText: {
 		color: '#fff',
 		fontSize: 14,
-		fontWeight: '600',
+		fontWeight: '200',
 	},
 	formField: {
 		marginBottom: 22,
 	},
 	input: {
 		padding: 16,
-		borderWidth: 1,
+		borderWidth: 2,
 		borderRadius: 3,
 		borderColor: textInputBorderColor,
 		color: textInputColor,
@@ -155,12 +171,20 @@ const AmplifyTheme = StyleSheet.create({
 
 	photoPickerButton: {},
 	photoPlaceholder: {},
-	signInButton: {
-        color: primaryButtonColor
-    },
+	
 	signInButtonIcon:{},
-	signInButtonContent: {},
-	amazonSignInButton: {},
+	signInButtonContent: {
+        display: 'flex',
+        padding: '18px 0',
+	    // whiteSpace: 'nowrap',
+	    overflow: 'hidden',
+	    // textOverflow: 'ellipsis',
+	    textAlign: 'center',
+    },
+	amazonSignInButton: {
+		color: secondary,
+		shadowColor: '#C4C4C4'
+	},
 	facebookSignInButton: {},
 	googleSignInButton: {},
 	oAuthSignInButton: {},
@@ -181,4 +205,4 @@ const AmplifyTheme = StyleSheet.create({
 	navItem: {}
 });
 
-export {AmplifyTheme}
+export {LocalAmplifyTheme}

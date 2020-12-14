@@ -10,13 +10,15 @@ import LoginScreen from "./src/scenes/login/LoginScreen";
 import AccountScreen from "./src/scenes/account/AccountScreen";
 import BrowseCardsScreen from "./src/scenes/browser/BrowseCardsScreen";
 import OrdersScreen from "./src/scenes/order/OrdersScreen";
+import AddressBookScreen from "./src/scenes/addressbook/AddressBookScreen";
+import SplashScreen from "./src/scenes/splash/SplashScreen";
 
 import Amplify from "aws-amplify";
 import config from "./aws-exports.js";
 import { withAuthenticator } from "aws-amplify-react-native";
-import { AmplifyTheme } from "./src/styles/AmplifyTheme";
-import AddressBookScreen from "./src/scenes/addressbook/AddressBookScreen";
-import SplashScreen from "./src/scenes/splash/SplashScreen";
+import { LocalAmplifyTheme } from "./src/styles/LocalAmplifyTheme";
+// import "@aws-amplify/ui/dist/style.css";
+
 Amplify.configure({
   ...config,
   Analytics: {
@@ -60,4 +62,11 @@ function App() {
   );
 }
 
-export default withAuthenticator(App, true, [], false, AmplifyTheme);
+export default withAuthenticator(
+  App, 
+  {includeGreetings: true}, 
+  // [],
+  [],
+  null,
+  LocalAmplifyTheme
+);
