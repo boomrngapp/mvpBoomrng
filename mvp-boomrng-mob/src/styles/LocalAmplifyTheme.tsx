@@ -21,6 +21,12 @@ export const disabledButtonColor = '#ff990080';
 
 // Theme
 const LocalAmplifyTheme = StyleSheet.create({
+	primary: { color: primary},
+	primary2: {color: primary2},
+	primary3: {color: primary3},
+	primary4: {color: primary4},
+	secondary: {color: secondary},
+	secondary2: {color: secondary2},
     container: {
 		flex: 1,
 		flexDirection: 'column',
@@ -205,4 +211,4 @@ const LocalAmplifyTheme = StyleSheet.create({
 	navItem: {}
 });
 
-export {LocalAmplifyTheme}
+export {LocalAmplifyTheme};

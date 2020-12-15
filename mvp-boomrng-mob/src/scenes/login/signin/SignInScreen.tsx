@@ -5,6 +5,7 @@ import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../../../components/atoms/AppTextInput';
 import AppButton from '../../../components/atoms/AppButton';
+import {LocalAmplifyTheme} from '../../../styles/LocalAmplifyTheme'
 
 export default function SignIn({ navigation, updateAuthState }) {
     const [username, setUsername] = useState('');
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        color: 'secondary1',
+        color: '#CACECE',
         fontWeight: '500',
         marginVertical: 15
     },
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     forgotPasswordButtonText: {
-        color: 'primary4',
+        color: '#C70136',
         fontSize: 18,
         fontWeight: '600'
     }
