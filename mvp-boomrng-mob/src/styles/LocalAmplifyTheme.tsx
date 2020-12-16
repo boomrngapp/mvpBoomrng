@@ -1,9 +1,7 @@
 import { StyleSheet } from 'react-native';
-// import { AmplifyTheme } from 'aws-amplify-react-native';
 
 export type AmplifyThemeType = Record<string, any>;
 
-// export const sc = StyleSheet.create({})
 export const primary = '#024E99';
 export const primary2 = '#02ADED';
 export const primary3 = '#FFBB00';
@@ -19,7 +17,6 @@ export const disabledButtonColor = '#ff990080';
 
 
 
-// Theme
 const LocalAmplifyTheme = StyleSheet.create({
 	primary: { color: primary},
 	primary2: {color: primary2},
@@ -34,7 +31,6 @@ const LocalAmplifyTheme = StyleSheet.create({
 		justifyContent: 'space-around',
 		paddingTop: 20,
 		width: '100%',
-		// backgroundColor: 'transparent',
 	},
 	section: {
 		flex: 1,
@@ -182,9 +178,7 @@ const LocalAmplifyTheme = StyleSheet.create({
 	signInButtonContent: {
         display: 'flex',
         padding: '18px 0',
-	    // whiteSpace: 'nowrap',
 	    overflow: 'hidden',
-	    // textOverflow: 'ellipsis',
 	    textAlign: 'center',
     },
 	amazonSignInButton: {

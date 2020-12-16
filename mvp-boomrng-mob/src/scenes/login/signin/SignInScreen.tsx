@@ -46,7 +46,7 @@ export default function SignIn({ navigation, updateAuthState }) {
                     <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
                         <Text style={styles.forgotPasswordButtonText}>
                             Don't have an account? Sign Up
-                        </Text>  {/* change to boomrng language */}
+                        </Text>
                     </TouchableOpacity>
                 </View>
             </View>

@@ -1,4 +1,3 @@
-// app text input
 import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -12,7 +11,7 @@ export default function AppText({ leftIcon, ...otherProps}) {
                 <MaterialCommunityIcons
                     name={leftIcon}
                     size={20}
-                    color='s2'
+                    color='#E5E7E9'
                     style={styles.icon}
                 />
             )}

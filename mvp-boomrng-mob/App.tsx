@@ -102,7 +102,7 @@ function App() {
       setUserLoggedIn('loggedOut')
     }
   }
-  function updateAuthState(isUserLoggedIn) {
+  function updateAuthState(isUserLoggedIn: React.SetStateAction<string>) {
     setUserLoggedIn(isUserLoggedIn);
   }
   return (

@@ -1,4 +1,3 @@
-// app button
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { primary } from '../../styles/LocalAmplifyTheme';
