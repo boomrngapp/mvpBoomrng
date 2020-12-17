@@ -1,4 +1,3 @@
-// app button
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { primary } from '../../styles/LocalAmplifyTheme';
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 15,
         width: '80%',
-        backgroundColor: primary
+        backgroundColor: '#024E99'
     },
     buttonText: {
         color: 'white',

@@ -1,23 +1,23 @@
-// app text input
 import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LocalAmplifyTheme } from '../../styles/LocalAmplifyTheme'
 
 export default function AppText({ leftIcon, ...otherProps}) {
+    const s2 = LocalAmplifyTheme.secondary2
     return (
-        <View style={Styles.container}>
+        <View style={styles.container}>
             {leftIcon && (
                 <MaterialCommunityIcons
                     name={leftIcon}
                     size={20}
-                    color='secondary1'
+                    color='#E5E7E9'
                     style={styles.icon}
                 />
             )}
             <TextInput
                 style={styles.input}
-                placeholderTextColor ='secondary'
+                placeholderTextColor ='#101010'
                 {...otherProps}
             />
         </View>
@@ -26,7 +26,7 @@ export default function AppText({ leftIcon, ...otherProps}) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'f9f9f9',
+        backgroundColor: '#f9f9f9',
         borderRadius: 25,
         flexDirection: 'row',
         padding: 15,

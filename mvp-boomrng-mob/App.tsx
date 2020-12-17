@@ -1,23 +1,22 @@
 import "react-native-gesture-handler";
-import * as React from "react";
-import { ImageBackground, StyleSheet } from "react-native";
+import  React, { useState,useEffect } from "react";
+import { ImageBackground, StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 import HomeScreen from "./src/scenes/home/HomeScreen";
-import LoginScreen from "./src/scenes/login/LoginScreen";
 import AccountScreen from "./src/scenes/account/AccountScreen";
 import BrowseCardsScreen from "./src/scenes/browser/BrowseCardsScreen";
 import OrdersScreen from "./src/scenes/order/OrdersScreen";
 import AddressBookScreen from "./src/scenes/addressbook/AddressBookScreen";
-import SplashScreen from "./src/scenes/splash/SplashScreen";
 
-import Amplify from "aws-amplify";
+import Amplify, { Auth } from "aws-amplify";
 import config from "./aws-exports.js";
-import { withAuthenticator } from "aws-amplify-react-native";
-import { LocalAmplifyTheme } from "./src/styles/LocalAmplifyTheme";
-// import "@aws-amplify/ui/dist/style.css";
+import SignIn from "./src/scenes/login/signin/SignInScreen"
+import SignUp from "./src/scenes/login/signup/SignUpScreen"
+import ConfirmSignUp from "./src/scenes/login/confirmsignup/ConfirmSignUp"
+import { ActivityIndicator } from "react-native-paper";
 
 Amplify.configure({
   ...config,
@@ -26,9 +25,48 @@ Amplify.configure({
   },
 });
 
+const AuthenicationStack = createStackNavigator();
+const AppStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 const image = "./src/assets/images/HomeScreen.png";
+
+const AuthenticationNavigator = props => {
+  return (
+    <AuthenicationStack.Navigator headerMode="none">
+      <AuthenicationStack.Screen name="SignIn">
+        {screenProps => (
+          <SignIn {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
+      </AuthenicationStack.Screen>
+      <AuthenicationStack.Screen name="SignUp" component={SignUp} />
+      <AuthenicationStack.Screen
+        name="ConfirmSignUp"
+        component={ConfirmSignUp}
+      />
+    </AuthenicationStack.Navigator>
+  );
+};
+
+const AppNavigator = props => {
+  return (
+    <AppStack.Navigator>
+      <AppStack.Screen name="Home">
+        {screenProps => (
+          <HomeScreen {...screenProps} updateAuthState={props.updateAuthState} />
+        )}
+      </AppStack.Screen>
+    </AppStack.Navigator>
+  );
+};
+
+const Initializing = () => {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ActivityIndicator size="large" color="#C70136" />
+    </View>
+  )
+}
 
 function HomeTabs() {
   return (
@@ -50,23 +88,35 @@ function HomeStack() {
 }
 
 function App() {
+  const [isUserLoggedIn, setUserLoggedIn] = useState('initializing');
+  useEffect(() => {
+    checkAuthState();
+  },[]);
+  async function checkAuthState() {
+    try {
+      await Auth.currentAuthenticatedUser();
+      console.log('User is signed in');
+      setUserLoggedIn('loggedIn');
+    } catch (err) {
+      console.log(' User is not signed in');
+      setUserLoggedIn('loggedOut')
+    }
+  }
+  function updateAuthState(isUserLoggedIn: React.SetStateAction<string>) {
+    setUserLoggedIn(isUserLoggedIn);
+  }
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeTabs} />
-        <Stack.Screen name="Account" component={AccountScreen} />
-      </Stack.Navigator>
+      {isUserLoggedIn === 'initializaing' && <Initializing />}
+      {isUserLoggedIn === 'loggedIn' && (
+        <AppNavigator updateAuthState={updateAuthState} />
+      )}
+      {isUserLoggedIn === 'loggedOut' && (
+        <AuthenticationNavigator updateAuthState={updateAuthState} />
+      )}
+
     </NavigationContainer>
   );
 }
 
-export default withAuthenticator(
-  App, 
-  {includeGreetings: true}, 
-  // [],
-  [],
-  null,
-  LocalAmplifyTheme
-);
+export default App;

@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        color: 'primary',
+        color: '#024E99',
         fontWeight: '500',
         marginVertical: 15
     },
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     forgotPasswordButtonText: {
-        color: 'primary4',
+        color: '#C70136',
         fontSize: 18,
         fontWeight: '600'
     }
