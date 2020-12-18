@@ -1,6 +1,6 @@
 import "react-native-gesture-handler";
 import  React, { useState,useEffect } from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { ActivityIndicator,ImageBackground, StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -16,7 +16,8 @@ import config from "./aws-exports.js";
 import SignIn from "./src/scenes/login/signin/SignInScreen"
 import SignUp from "./src/scenes/login/signup/SignUpScreen"
 import ConfirmSignUp from "./src/scenes/login/confirmsignup/ConfirmSignUp"
-import { ActivityIndicator } from "react-native-paper";
+import ForgotPassword from "./src/scenes/login/resetpassword/ForgotPassword"
+import ForgotPasswordSubmit from "./src/scenes/login/resetpassword/ForgotPasswordSubmit"
 
 Amplify.configure({
   ...config,
@@ -44,6 +45,8 @@ const AuthenticationNavigator = props => {
         name="ConfirmSignUp"
         component={ConfirmSignUp}
       />
+      <AuthenicationStack.Screen name="ForgotPassword" component={ForgotPassword} />
+      <AuthenicationStack.Screen name="ForgotPasswordSubmit" component={ForgotPasswordSubmit} />
     </AuthenicationStack.Navigator>
   );
 };
