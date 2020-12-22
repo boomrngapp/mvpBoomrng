@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../../../components/atoms/AppTextInput';
 import AppButton from '../../../components/atoms/AppButton';
-export default function ConfirmSignUp({ navigation }) {
+export default function ForgotPassword({ navigation }) {
     const [username, setUsername] = useState('');
-    const [authCode, setAuthCode] = useState('');
-    async function confirmSignUp() {
+    async function ForgotPassword() {
         try {
-            await Auth.confirmSignUp(username, authCode);
-            console.log('Code confirmed');
-            navigation.navigate('SignIn');
+            await Auth.forgotPassword(username);
+            console.log('Code sent to email');
+            navigation.navigate('ForgotPasswordSubmit');
         } catch (error) {
             console.log(
-                'Verification code does not match. Please enter a valid verification code.',
+                'Please enter a valid username.',
                 error.code
             );
         }
@@ -23,25 +22,23 @@ export default function ConfirmSignUp({ navigation }) {
         <SafeAreaView style={styles.safeAreaContainer}>
             <View style={styles.container}>
                 <Image style={styles.logo} source={require('../../../assets/images/icon.png')} />
-                <Text style={styles.title}>Confirm Sign Up</Text>
+                <Text style={styles.title}>Forgot Password</Text>
                 <AppTextInput
                     value={username}
                     onChangeText={text => setUsername(text)}
                     leftIcon="account"
-                    placeholder="Enter username"
+                    placeholder="Enter email"
                     autoCapitalize="none"
                     keyboardType="email-address"
                     textContentType="emailAddress" 
                 />
-                <AppTextInput
-                    value={authCode}
-                    onChangeText={text => setAuthCode(text)}
-                    leftIcon="numeric"
-                    placeholder="Enter verification code"
-                    keyboardType="numeric" 
-                />
-                <AppButton title="Confirm Sign Up" onPress={confirmSignUp} />
-            </View>
+                <AppButton title="Submit" onPress={ForgotPassword} />
+                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                        <Text style={styles.forgotPasswordButtonText}>
+                            Return to Sign In
+                        </Text>
+                    </TouchableOpacity>
+                </View>
         </SafeAreaView>
     );
 }
@@ -53,6 +50,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center'
+    },
+    footerButtonContainer: {
+        marginVertical: 15,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    forgotPasswordButtonText: {
+        color: '#C70136',
+        fontSize: 18,
+        fontWeight: '600'
     },
     logo: {},
     title: {

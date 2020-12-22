@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../../../components/atoms/AppTextInput';
@@ -21,12 +21,13 @@ export default function SignUp({ navigation }) {
     return (
         <SafeAreaView style={styles.safeAreaContainer}>
             <View style={styles.container}>
+                <Image style={styles.logo} source={require('../../../assets/images/icon.png')} />
                 <Text style={styles.title}>Create a new account</Text>
                 <AppTextInput
                     value={username}
                     onChangeText={text => setUsername(text)}
                     leftIcon="account"
-                    placeholder="Enter username"
+                    placeholder="Enter email"
                     autoCapitalize="none"
                     keyboardType="email-address"
                     textContentType="emailAddress"
@@ -45,7 +46,7 @@ export default function SignUp({ navigation }) {
                     value={email}
                     onchangeText={text => setEmail(text)}
                     leftIcon="email"
-                    placehoder="Enter email"
+                    placeholder="Re-enter email"
                     autoCapitalize="none"
                     keyboardType="email-address"
                     textContentType="emailAddress" 
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center'
     },
+    logo: {},
     title: {
         fontSize: 20,
         color: '#024E99',

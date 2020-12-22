@@ -1,9 +1,10 @@
 import React from "react";
 import { StyleSheet, View, ImageBackground } from "react-native";
+import { Auth } from "aws-amplify";
 
 const image = '../../assets/images/OrdersScreen.png'
 
-function OrdersScreen() {
+function OrdersScreen({ updateAuthState }) {
   return (
     <View>
       <ImageBackground 

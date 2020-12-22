@@ -1,10 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { LocalAmplifyTheme } from '../../styles/LocalAmplifyTheme'
 
 export default function AppText({ leftIcon, ...otherProps}) {
-    const s2 = LocalAmplifyTheme.secondary2
     return (
         <View style={styles.container}>
             {leftIcon && (
