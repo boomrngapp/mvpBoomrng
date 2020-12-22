@@ -24,12 +24,12 @@ export default function ForgotPasswordSubmit({ navigation }) {
         <SafeAreaView style={styles.safeAreaContainer}>
             <View style={styles.container}>
                 <Image style={styles.logo} source={require('../../../assets/images/icon.png')} />
-                <Text style={styles.title}>Go to Sign In</Text>
+                <Text style={styles.title}>Password Reset</Text>
                 <AppTextInput
                     value={username}
                     onChangeText={text => setUsername(text)}
                     leftIcon="account"
-                    placeholder="Enter username"
+                    placeholder="Enter email"
                     autoCapitalize="none"
                     keyboardType="email-address"
                     textContentType="emailAddress" 

@@ -11,6 +11,7 @@
     "@material-ui/core": "^4.2.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-community/netinfo": "^5.9.6",
+    "@react-navigation/drawer": "^5.11.4",
     "@react-navigation/material-bottom-tabs": "^5.3.10",
     "@react-navigation/material-top-tabs": "^5.3.10",
     "@react-navigation/native": "^5.8.10",
@@ -23,6 +24,7 @@
     "react-devtools-core": "^4.10.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
+    "react-native-appearance": "^0.3.4",
     "react-native-debugger-open": "^0.3.25",
     "react-native-gesture-handler": "~1.7.0",
     "react-native-paper": "^4.4.1",
@@ -40,6 +42,7 @@
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
     "@types/react-native": "~0.63.2",
+    "@types/react-native-vector-icons": "^6.4.6",
     "typescript": "~3.9.5"
   },
   "debug": "REACT_DEBUGGER=\"rndebugger-open --open --expo\" expo start",
