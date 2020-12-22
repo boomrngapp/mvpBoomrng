@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Auth } from 'aws-amplify';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppTextInput from '../../../components/atoms/AppTextInput';
 import AppButton from '../../../components/atoms/AppButton';
-import {LocalAmplifyTheme} from '../../../styles/LocalAmplifyTheme'
 
 export default function SignIn({ navigation, updateAuthState }) {
     const [username, setUsername] = useState('');
@@ -22,6 +21,7 @@ export default function SignIn({ navigation, updateAuthState }) {
     return (
         <SafeAreaView style={styles.safeAreaContainer}>
             <View style={styles.container}>
+                <Image style={styles.logo} source={require('../../../assets/images/icon.png')} />
                 <Text style={styles.title}>Sign in to your account</Text>
                 <AppTextInput
                     value={username}
@@ -44,8 +44,14 @@ export default function SignIn({ navigation, updateAuthState }) {
                 <AppButton title="Login" onPress={signIn} />
                 <View style={styles.footerButtonContainer}>
                     <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-                        <Text style={styles.forgotPasswordButtonText}>
+                        <Text style={styles.newUserButtonText}>
                             Don't have an account? Sign Up
+                        </Text>
+                    </TouchableOpacity>
+                        <Text>or</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+                        <Text style={styles.forgotPasswordButtonText}>
+                            Forgot your password?
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -63,6 +69,9 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center'
     },
+    logo: {
+
+    },
     title: {
         fontSize: 20,
         color: '#CACECE',
@@ -73,6 +82,11 @@ const styles = StyleSheet.create({
         marginVertical: 15,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    newUserButtonText: {
+        color: '#024E99',
+        fontSize: 18,
+        fontWeight: '600'
     },
     forgotPasswordButtonText: {
         color: '#C70136',
