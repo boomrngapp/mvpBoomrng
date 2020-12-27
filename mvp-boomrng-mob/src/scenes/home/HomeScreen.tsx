@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import { Auth } from "aws-amplify";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import CardList from "../../components/molecules/CardList";
 
 function HomeScreen({ updateAuthState, navigation }) {
   async function signOut() {
@@ -18,15 +20,20 @@ function HomeScreen({ updateAuthState, navigation }) {
         <Button title="Sign Out" color="#02ADED" onPress={signOut} />
       </View>
       <View style={styles.container}>
-        <View style={{ flex: 2 }}>
-          <Text>Highlight area</Text>
+        <View style={{ flex: 2, alignItems: 'center' }}>
+          <CardList></CardList>
         </View>
         <View style={{ flex: 1, alignItems: 'center'}}>
-          <Text>Browse area</Text>
-          <Button
-            title="Browse"
+          <TouchableOpacity
             onPress={() => navigation.navigate("BrowseCards")}
-          />
+          >
+          <Text>Browse area</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("AppDrawer")}
+          >
+          <Text>Account</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
