@@ -4,6 +4,13 @@
     "jsx": "react-native",
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths":{
+      "~/*":["src/*"],
+      "@components":["src/components/*"],
+      "@screens":["src/scenes/*"],
+      "@images":["src/assets/images/*"]
+    },
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
