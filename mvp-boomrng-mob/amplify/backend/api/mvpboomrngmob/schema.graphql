@@ -1,0 +1,110 @@
+type Task @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Managers"], queries: null, mutations: [create, update, delete] }
+      { allow: groups, groups: ["Employees"], queries: [get, list], mutations: null }
+    ]
+  ) {
+  id: ID!
+  title: String!
+  description: String
+  status: String
+}
+type PrivateNote @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  content: String!
+}
+
+type Profile @model
+  @auth(rules: [{ allow: owner }]) {
+    id: ID!
+    username: String!
+    firstName: String
+    middle: String
+    lastName: String
+    suffix: String
+    email: String
+    phoneNumber: String
+    streetNumber: Int
+    addPfx: String
+    streetName: String
+    addSfx: String
+    aptSuite: String
+    city: String
+    stateProvince: String
+    postal: String
+    gender: Gender
+    birthday: String!
+    anniversary: String
+    children: YesNo
+    childrenNames: [String]
+    militaryService: YesNo
+    portfolioID: ID!
+    portfolio: Portfolio @connection(fields: ["portfolioID"])
+  }
+
+type Portfolio @model
+  @auth() {
+  id: ID!
+  dataTypeID: Int!
+  data: [String!]
+}
+
+enum Gender { M F }
+
+enum YesNo { Yes No }
+
+type dataTypeID @model {
+  id: ID!
+  type: String!
+}
+
+type Product @model
+  @auth(rules: [{  
+    { allow: owner, groups, groups: ["Managers"], queries: null, mutations: [create, update, delete] }
+    { allow: groups, groups: ["Employees"], queries: [get, list], mutations: null }
+  }]) {
+    id: ID!
+    physical: Boolean!
+    name: String!
+}
+
+type Contact @model
+  @auth(rules: [{}]) {
+  id: ID!
+  first: String!
+  last: String!
+  email: String
+  phoneNumber: String
+  streetNumber: Int
+  addPfx: String
+  streetName: String
+  addSfx: String
+  aptSuite: String
+  city: String
+  stateProvince: String
+  postal: String
+  birthday: String!
+  children: YesNo
+  childrenNames: [String]
+  militaryService: YesNo
+  importantDates: [String]
+  reminderDates: [String]
+  recipientItems: [String] #List of items or products that have been sent to this recipient
+  contactTags: ContactTags
+}
+
+type ContactTags {
+  contactTags: ContactCategory 
+}
+
+enum ContactCategory { favorite relative coworker friend }
+
+type ProfileCalendar @model 
+  @auth(rules: [{}]) {
+  id: ID!
+  name: String!
+  absoluteDate: YesNo
+  contactConnect: YesNo
+  contactId: ID
+}

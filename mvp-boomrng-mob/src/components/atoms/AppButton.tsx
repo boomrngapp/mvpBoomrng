@@ -11,20 +11,27 @@ export default function AppButton({ title, onPress}) {
 }
 const styles = StyleSheet.create({
     button: {
-        marginVertical: 10,
+        marginVertical: 20,
+        color: '#FFBB00',
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 15,
-        width: '80%',
-        shadowColor: '#CACECE',
-        backgroundColor: '#024E99'
-        
+        padding: 5,
+        width: 210,
+        height: 45,
+        backgroundColor: '#FFBB00',
+        borderBottomColor: '#AFAFAF',
+        borderBottomWidth: 3,
+        borderRightColor: '#AFAFAF',
+        borderRightWidth: 3,
+        borderLeftColor: '#AFAFAF',
+        borderLeftWidth: 1,
+        // shadowColor: '#CACECE',
     },
     buttonText: {
-        color: 'white',
+        color: 'black',
         fontSize: 18,
-        fontWeight: '600',
-        textTransform: 'uppercase'
+        fontWeight: 'bold',
+        // textTransform: 'uppercase'
     }
 });

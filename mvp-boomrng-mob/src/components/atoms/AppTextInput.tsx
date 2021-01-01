@@ -27,15 +27,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#f9f9f9',
         borderRadius: 25,
         flexDirection: 'row',
-        padding: 15,
-        marginVertical: 10
+        padding: 5,
+        marginVertical: 10,
+        alignItems: 'center'
     },
     icon: {
-        marginRight: 10
+        marginRight: 5
     },
     input: {
-        width: '80%',
+        width: 275,
+        height: 35,
         fontSize: 18,
-        color: '#101010'
+        color: '#101010',
+        opacity: 0.26,
     }
 });

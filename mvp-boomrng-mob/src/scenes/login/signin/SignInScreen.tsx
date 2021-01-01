@@ -22,12 +22,12 @@ export default function SignIn({ navigation, updateAuthState }) {
         <SafeAreaView style={styles.safeAreaContainer}>
             <View style={styles.container}>
                 <Image style={styles.logo} source={require('../../../assets/images/icon.png')} />
-                <Text style={styles.title}>Sign in to your account</Text>
+                <Text style={styles.title}>Log In</Text>
                 <AppTextInput
                     value={username}
                     onChangeText={text => setUsername(text)}
                     leftIcon="account"
-                    placeholder="Enter username"
+                    placeholder="Username or Email"
                     autoCapitalize="none"
                     keyboardType="email-address"
                     textContentType="emailAddress"
@@ -35,26 +35,31 @@ export default function SignIn({ navigation, updateAuthState }) {
                 <AppTextInput value={password}
                     onChangeText={text => setPassword(text)}
                     leftIcon="lock"
-                    placeholder="Enter password"
+                    placeholder="Password"
                     autoCapitalize="none"
                     autoCorrect={false}
                     secureTextEntry
                     textContentType="password" 
                 />
-                <AppButton title="Login" onPress={signIn} />
+                <Text style={styles.title}>or</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 10}}>
+                    <Image source={require('../../../assets/images/FB_Icon.png')}></Image>
+                    <Image source={require('../../../assets/images/Google_2274401.png')}></Image>
+                    <Image source={require('../../../assets/images/Amazon-icon_200x200.png')}></Image>
+                </View>
+                    <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+                        <Text style={styles.forgotPasswordButtonText}>
+                            Forgot your password?
+                        </Text>
+                    </TouchableOpacity>
+                <AppButton title="Log In" onPress={signIn} />
                 <View style={styles.footerButtonContainer}>
                     <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
                         <Text style={styles.newUserButtonText}>
                             Don't have an account? Sign Up
                         </Text>
                     </TouchableOpacity>
-                        <Text>or</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-                        <Text style={styles.forgotPasswordButtonText}>
-                            Forgot your password?
-                        </Text>
-                    </TouchableOpacity>
-                </View>
+            </View>
             </View>
         </SafeAreaView>
     );
@@ -70,13 +75,16 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     logo: {
-
+        width: 200,
+        height: 200,
+        padding: 20,
+        marginTop: 30,
     },
     title: {
         fontSize: 20,
-        color: '#CACECE',
+        color: 'black',
         fontWeight: '500',
-        marginVertical: 15
+        marginVertical: 5
     },
     footerButtonContainer: {
         marginVertical: 15,
@@ -89,8 +97,8 @@ const styles = StyleSheet.create({
         fontWeight: '600'
     },
     forgotPasswordButtonText: {
-        color: '#C70136',
-        fontSize: 18,
+        color: '#024E99',
+        fontSize: 14,
         fontWeight: '600'
     }
 });

@@ -113,22 +113,6 @@ const AppNavigator = (props) => {
           )}
         </MaterialBottomTabs.Screen>
         <MaterialBottomTabs.Screen
-          name="Add"
-          options={{
-            tabBarLabel: "Add",
-            tabBarIcon: () => (
-              <MaterialCommunityIcons name="plus" color="#02ADED" size={26} />
-            ),
-          }}
-        >
-          {(screenProps) => (
-            <AddScreen
-              {...screenProps}
-              updateAuthState={props.updateAuthState}
-            />
-          )}
-        </MaterialBottomTabs.Screen>
-        <MaterialBottomTabs.Screen
           name="Calendar"
           options={{
             tabBarLabel: "Calendar",
@@ -148,6 +132,22 @@ const AppNavigator = (props) => {
             />
           )}
         </MaterialBottomTabs.Screen>
+          <MaterialBottomTabs.Screen
+            name="Add"
+            options={{
+              tabBarLabel: "Add",
+              tabBarIcon: () => (
+                <MaterialCommunityIcons name="plus" color="#02ADED" size={26} />
+              ),
+            }}
+          >
+            {(screenProps) => (
+              <AddScreen
+                {...screenProps}
+                updateAuthState={props.updateAuthState}
+              />
+            )}
+          </MaterialBottomTabs.Screen>
         <MaterialBottomTabs.Screen
           name="Orders"
           options={{
@@ -161,6 +161,20 @@ const AppNavigator = (props) => {
             <OrdersScreen
               {...screenProps}
               updateAuthState={props.updateAuthState}
+            />
+          )}
+        </MaterialBottomTabs.Screen>
+        <MaterialBottomTabs.Screen
+          name="Menu"
+          options={{
+            tabBarLabel: "Menu",
+            tabBarIcon: () => (
+              <MaterialCommunityIcons name="menu" color="#FFBB00" size={26} />
+            ),
+          }}
+        >
+          {() => (
+            <AppDrawer
             />
           )}
         </MaterialBottomTabs.Screen>
