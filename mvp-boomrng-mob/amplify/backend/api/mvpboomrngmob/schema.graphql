@@ -10,15 +10,20 @@ type Task @model
   description: String
   status: String
 }
-type PrivateNote @model @auth(rules: [{ allow: owner }]) {
+type PrivateNote @model @auth(rules: [{ allow: owner, groups: [], queries: null, mutations: [] }]) {
   id: ID!
   content: String!
 }
 
+enum Gender { M F }
+
+enum YesNo { Yes No }
+
 type Profile @model
-  @auth(rules: [{ allow: owner }]) {
+  @auth(rules: [{ allow: owner, groups: [], queries: null, mutations: [] }]) {
     id: ID!
     username: String!
+    profileImage: String
     firstName: String
     middle: String
     lastName: String
@@ -44,33 +49,30 @@ type Profile @model
   }
 
 type Portfolio @model
-  @auth() {
+  @auth(rules: [{ allow: owner, groups: [], queries: null, mutations: [] }]) {
   id: ID!
   dataTypeID: Int!
   data: [String!]
 }
 
-enum Gender { M F }
-
-enum YesNo { Yes No }
-
-type dataTypeID @model {
+type dataTypeID @model
+  @auth(rules: [{ allow: owner, groups: [], queries: null, mutations: []} ]) {
   id: ID!
   type: String!
 }
 
 type Product @model
-  @auth(rules: [{  
-    { allow: owner, groups, groups: ["Managers"], queries: null, mutations: [create, update, delete] }
+  @auth(rules: [ 
+    { allow: owner, groups: ["Managers"], queries: null, mutations: [create, update, delete] }
     { allow: groups, groups: ["Employees"], queries: [get, list], mutations: null }
-  }]) {
+  ]) {
     id: ID!
     physical: Boolean!
     name: String!
 }
 
 type Contact @model
-  @auth(rules: [{}]) {
+  @auth(rules: [{ allow: owner, groups: [], queries: null, mutations: []} ]) {
   id: ID!
   first: String!
   last: String!
@@ -101,7 +103,7 @@ type ContactTags {
 enum ContactCategory { favorite relative coworker friend }
 
 type ProfileCalendar @model 
-  @auth(rules: [{}]) {
+  @auth(rules: [{ allow: owner, groups: [], queries: null, mutations: []}]) {
   id: ID!
   name: String!
   absoluteDate: YesNo

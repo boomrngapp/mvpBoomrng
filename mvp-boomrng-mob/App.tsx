@@ -35,7 +35,7 @@ import OrdersScreen from "./src/scenes/order/OrdersScreen";
 import CalendarScreen from "./src/scenes/calendar/CalendarScreen";
 import AddScreen from "./src/scenes/viewer/AddScreen";
 
-import Amplify, { Auth } from "aws-amplify";
+import Amplify, { Auth, API } from "aws-amplify";
 import config from "./aws-exports.js";
 
 Amplify.configure({
@@ -265,6 +265,12 @@ const Initializing = () => {
     </View>
   );
 };
+
+// async function getProfile() {
+//   const profileData = await API.graphql({
+//     query: getProfile
+//   })
+// }
 
 function App() {
   const [isUserLoggedIn, setUserLoggedIn] = useState("initializing");
